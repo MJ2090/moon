@@ -6,8 +6,9 @@ from django.shortcuts import render
 # Create your views here.
 
 def test_async(request):
-    ai_message = "sssss"
-    ret = {}
-
-    # return HttpResponse(json.dumps({'ai_message': ai_message}))
-    return render(request, 'endpoint/main.html', ret)
+    if request.method == 'POST':
+        ai_message = "sssss"
+        return HttpResponse(json.dumps({'ai_message': ai_message}))
+    else:
+        ret = {}
+        return render(request, 'endpoint/main.html', ret)
