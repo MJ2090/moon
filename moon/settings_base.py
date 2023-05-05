@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["52.10.1.27",
                  "34.64.110.21",
                  "127.0.0.1",
                  "asuperdomain.com",
+                 "llm.asuperdomain.com",
                  "www.asuperdomain.com",
                  "localhost"]
 
