@@ -38,7 +38,7 @@ ALLOWED_HOSTS = ["52.10.1.27",
 # Application definition
 
 INSTALLED_APPS = [
-    'embedding.apps.EmbeddingConfig',
+    'moon.apps.MoonConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -62,7 +62,7 @@ ROOT_URLCONF = 'moon.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['embedding/templates/embedding/'],
+        'DIRS': ['moon/templates/moon/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,7 +121,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'embedding.UserProfile'
+AUTH_USER_MODEL = 'moon.UserProfile'
 
 LOGIN_URL='/signin/'
 
