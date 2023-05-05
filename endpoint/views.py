@@ -10,7 +10,8 @@ x=0
 
 def test_async(request):
     if request.method == 'POST':
-        ai_message = settings.LLAMA.evaluate()
+        ai_message = 'wwwww'
+        # ai_message = settings.LLAMA.evaluate()
         return HttpResponse(json.dumps({'ai_message': ai_message}))
     else:
         ret = {}
