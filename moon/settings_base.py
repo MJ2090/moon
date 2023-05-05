@@ -176,6 +176,7 @@ class LlamaModel:
         return "hahaha"
 
     def evaluate(self,
+                 prompt='',
                  temperature=0.1,
                  top_p=0.75,
                  top_k=40,
@@ -183,7 +184,6 @@ class LlamaModel:
                  max_new_tokens=128,
                  **kwargs,
                  ):
-        prompt = 'How are you today'
         inputs = self.tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to('cuda')
         generation_config = GenerationConfig(
