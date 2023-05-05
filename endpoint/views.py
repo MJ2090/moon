@@ -1,13 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 import json
-from django.shortcuts import render
+from django.conf import settings
 
 # Create your views here.
 
 def test_async(request):
     if request.method == 'POST':
-        ai_message = "okay how are you"
+        ai_message = settings.MESSAGE
         return HttpResponse(json.dumps({'ai_message': ai_message}))
     else:
         ret = {}

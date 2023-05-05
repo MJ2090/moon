@@ -130,3 +130,5 @@ SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 CSRF_TRUSTED_ORIGINS = ['https://accounts.google.com']
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
+
+MESSAGE = 'hii how are youu'
