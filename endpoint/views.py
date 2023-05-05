@@ -5,6 +5,9 @@ from django.conf import settings
 
 # Create your views here.
 
+print("in the view!!")
+x=0
+
 def test_async(request):
     if request.method == 'POST':
         ai_message = settings.LLAMA.evaluate()
