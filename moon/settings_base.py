@@ -183,7 +183,7 @@ class LlamaModel:
                  max_new_tokens=128,
                  **kwargs,
                  ):
-        prompt = 'Hou are you today'
+        prompt = 'How are you today'
         inputs = self.tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to('cuda')
         generation_config = GenerationConfig(
