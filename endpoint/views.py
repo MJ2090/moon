@@ -18,6 +18,8 @@ def test_async(request):
 """
 
         print("request.POST = ", request.POST, request.POST['messages'][0])
+        print("others1 , ", request.POST['messages'])
+        print("others2 , ", request.POST['messages'][0])
         prompt = prompt_template
         messages = json.loads(request.POST['messages'][0])
         for item in messages:
