@@ -139,7 +139,7 @@ print(os.getcwd())
 
 class LlamaModel:
 
-    def _init__(self, load_8bit: bool = False,
+    def __init__(self, load_8bit: bool = False,
                 base_model: str = "decapoda-research/llama-7b-hf",
                 lora_weights: str = "training_results/question_1",
                 verbose: bool = True,):
