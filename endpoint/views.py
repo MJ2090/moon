@@ -10,4 +10,4 @@ def test_async(request):
     ret = {}
 
     # return HttpResponse(json.dumps({'ai_message': ai_message}))
-    return render(request, 'moon/main.html', ret)
+    return render(request, 'endpoint/main.html', ret)
