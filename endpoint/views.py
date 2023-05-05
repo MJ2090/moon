@@ -15,15 +15,24 @@ def test_async(request):
         Below is aninstruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
 
 ### Instruction:
-Below is a dialogue between a patient and a therapist. Write one reply as if you were the therapist.
+"""
 
-### Input:
-Patient: I'm sad
+        print(request.POST)
+        prompt = prompt_template
+        messages = request.POST['messages']
+        for item in messages:
+            if item['role'] == 'user':
+                prompt += f"""
+Patient: {item['content']}"""
+            if item['role'] == 'Assistant':
+                prompt += f"""
+Therapist: {item['content']}"""
+        prompt += """
 
 ### Response:
+
 """
-        print(request.data)
-        ai_message = settings.LLAMA.evaluate(prompt=prompt_template)
+        ai_message = settings.LLAMA.evaluate(prompt = prompt)
         splitted = ai_message.split("### Response:")
         if len(splitted)>1:
             ans = splitted[1]
