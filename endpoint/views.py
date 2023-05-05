@@ -7,7 +7,7 @@ from django.shortcuts import render
 
 def test_async(request):
     if request.method == 'POST':
-        ai_message = "sssss"
+        ai_message = "okay how are you"
         return HttpResponse(json.dumps({'ai_message': ai_message}))
     else:
         ret = {}
