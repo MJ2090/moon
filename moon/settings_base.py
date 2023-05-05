@@ -26,8 +26,7 @@ try:
 except KeyError as e:
     raise RuntimeError("!!!Could not find a SECRET_KEY in environment") from e
 
-ALLOWED_HOSTS = ["52.10.1.27",
-                 "34.222.45.176",
+ALLOWED_HOSTS = ["34.222.45.176",
                  "34.64.110.21",
                  "127.0.0.1",
                  "asuperdomain.com",
