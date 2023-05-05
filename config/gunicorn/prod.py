@@ -5,7 +5,7 @@ import multiprocessing
 # Django WSGI application path in pattern MODULE_NAME:VARIABLE_NAME
 wsgi_app = "moon.wsgi:application"
 # The number of worker processes for handling requests
-workers = 4
+workers = 2
 # The socket to bind
 bind = "0.0.0.0:8000"
 # Write access and error info to /var/log
