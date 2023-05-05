@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import socket
 
 print("socket.gethostname() = ", socket.gethostname())
-if socket.gethostname() == 'ip-172-31-23-237':
+if socket.gethostname() == 'a100-1':
     from moon.settings_prod import *
 else:
     from moon.settings_dev import *

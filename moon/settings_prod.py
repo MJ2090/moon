@@ -15,9 +15,8 @@ print('In prod............')
 
 DEBUG = False
 
-# Note: Replace 'supersecure.codes' with your domain
 STATIC_ROOT = "/var/www/asuperdomain.com/static"
-STATICFILES_DIRS = [BASE_DIR / "embedding/static"]
+STATICFILES_DIRS = [BASE_DIR / "endpoint/static"]
 
 SECURE_HSTS_SECONDS = 60  # Unit is seconds; *USE A SMALL VALUE FOR TESTING!*
 SECURE_HSTS_PRELOAD = True
