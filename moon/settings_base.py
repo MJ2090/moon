@@ -147,17 +147,20 @@ class LlamaModel:
             load_8bit, base_model, lora_weights, self.tokenizer)
 
     def get_model(self, load_8bit: bool = False, base_model: str = '', lora_weights: str = '', tokenizer=None):
+        print(os.getcwd(), base_model, lora_weights)
         model = LlamaForCausalLM.from_pretrained(
             base_model,
             load_in_8bit=load_8bit,
             torch_dtype=torch.float16,
             device_map="auto",
         )
+        print(99)
         model = PeftModel.from_pretrained(
             model,
             lora_weights,
             torch_dtype=torch.float16,
         )
+        print(999)
         # unwind broken decapoda-research config
         model.config.pad_token_id = tokenizer.pad_token_id = 0  # unk
         model.config.bos_token_id = 1
