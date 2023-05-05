@@ -135,6 +135,8 @@ CSRF_TRUSTED_ORIGINS = ['https://accounts.google.com']
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 
+print(os.getcwd())
+
 class LlamaModel:
 
     def _init__(self, load_8bit: bool = False,
