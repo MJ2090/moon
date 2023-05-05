@@ -17,9 +17,9 @@ def test_async(request):
 ### Instruction:
 """
 
-        print("request.POST = ", request.POST)
+        print("request.POST = ", request.POST, request.POST['messages'][0])
         prompt = prompt_template
-        messages = json.loads(request.POST['messages'])
+        messages = json.loads(request.POST['messages'][0])
         for item in messages:
             if item['role'] == 'user':
                 prompt += f"""
