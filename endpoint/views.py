@@ -17,7 +17,7 @@ def test_async(request):
 ### Instruction:
 """
 
-        print(request.POST)
+        print("request.POST = ", request.POST)
         prompt = prompt_template
         messages = request.POST['messages']
         for item in messages:
