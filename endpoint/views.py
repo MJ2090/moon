@@ -11,7 +11,7 @@ x=0
 def test_async(request):
     if request.method == 'POST':
         ai_message = 'wwwww'
-        prompt = """
+        prompt_template = """
         Below is aninstruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
 
 ### Instruction:
@@ -22,8 +22,14 @@ Patient: I'm sad
 
 ### Response:
 """
-        ai_message = settings.LLAMA.evaluate(prompt=prompt)
-        return HttpResponse(json.dumps({'ai_message': ai_message}))
+        print(request.data)
+        ai_message = settings.LLAMA.evaluate(prompt=prompt_template)
+        splitted = ai_message.split("### Response:")
+        if len(splitted)>1:
+            ans = splitted[1]
+        else:
+            ans = splitted[0]
+        return HttpResponse(json.dumps({'ai_message': ans}))
     else:
         ret = {}
         return render(request, 'endpoint/main.html', ret)
