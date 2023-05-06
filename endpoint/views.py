@@ -27,7 +27,7 @@ Therapist: {item['content']}"""
 
         prompt += """
 
-### Responsekkk:
+### Response:
 """
         print(f"Prompt =============================\n{prompt}\n=============================")
         ai_message = settings.LLAMA.evaluate(prompt = prompt)
