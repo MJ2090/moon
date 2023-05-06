@@ -20,9 +20,11 @@ Below is a dialogue between a patient and a therapist. Write one reply as if you
                 prompt += f"""
 Patient: {item['content']}"""
             if item['role'] == 'assistant':
-                prompt += f"""
-{item['content']}"""
-        prompt += """
+                if item['content'].startswith("Therapist: "):
+                    prompt += f"""\n{item['content']}"""
+                else:
+                    prompt += f"""\nTherapist: {item['content']}"""
+            prompt += """
 
 ### Response:
 """
