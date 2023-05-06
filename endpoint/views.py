@@ -19,7 +19,10 @@ Below is a dialogue between a patient and a therapist. Write one reply as if you
             if item['role'] == 'user':
                 prompt += f"""
 Patient: {item['content']}"""
-            if item['role'] == 'assistant':
+            if item['role'] == 'assistant' and 'Therapist: ' in item['content']:
+                prompt += f"""
+{item['content']}"""
+            if item['role'] == 'assistant' and not 'Therapist:' in item['content']:
                 prompt += f"""
 Therapist: {item['content']}"""
 
