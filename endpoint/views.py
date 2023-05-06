@@ -17,11 +17,11 @@ def test_async(request):
 ### Instruction:
 """
 
-        print("request.POST = ", request.POST, request.POST['messages'][0])
+        print("request.POST = ", request.POST)
         print("others1 , ", request.POST['messages'])
-        print("others2 , ", request.POST['messages'][0])
+        print("others2 , ", type(request.POST['messages']))
         prompt = prompt_template
-        messages = json.loads(request.POST['messages'][0])
+        messages = json.loads(request.POST['messages'])
         for item in messages:
             if item['role'] == 'user':
                 prompt += f"""
