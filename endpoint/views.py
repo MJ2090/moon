@@ -29,7 +29,7 @@ Therapist: {item['content']}"""
         print(f"Prompt =============================\n{prompt}\n=============================")
         ai_message = settings.LLAMA.evaluate(prompt = prompt)
         print(f"Output =============================\n{ai_message}\n=============================")
-        splitted = ai_message.split("### Response:")
+        splitted = ai_message.split("### Response:\n")
         if len(splitted)>1:
             ans = splitted[1]
         else:
