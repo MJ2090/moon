@@ -22,9 +22,12 @@ Patient: {item['content']}"""
             if item['role'] == 'assistant':
                 prompt += f"""
 Therapist: {item['content']}"""
+
+        print("current prompt: ", prompt)
+
         prompt += """
 
-### Response:
+### Responsekkk:
 """
         print(f"Prompt =============================\n{prompt}\n=============================")
         ai_message = settings.LLAMA.evaluate(prompt = prompt)
