@@ -2,8 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import json
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
 
+@csrf_exempt
 def test_async(request):
     if request.method == 'POST':
         prompt_template = """Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
