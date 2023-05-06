@@ -16,8 +16,7 @@ def test_async(request):
 ### Instruction:
 Below is a dialogue between a patient and a therapist. Write one reply as if you were the therapist.
 
-### Input:
-"""
+### Input:"""
         print("messages , ", request.POST['messages'])
         prompt = prompt_template
         messages = json.loads(request.POST['messages'])
@@ -31,7 +30,6 @@ Therapist: {item['content']}"""
         prompt += """
 
 ### Response:
-
 """
         print("prompt = ", prompt)
         ai_message = settings.LLAMA.evaluate(prompt = prompt)
