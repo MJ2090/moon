@@ -21,7 +21,7 @@ Below is a dialogue between a patient and a therapist. Write one reply as if you
 Patient: {item['content']}"""
             if item['role'] == 'assistant':
                 prompt += f"""
-Therapist: {item['content']}"""
+{item['content']}"""
         prompt += """
 
 ### Response:
