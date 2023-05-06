@@ -8,7 +8,7 @@ import os
 class LlamaModel:
     def __init__(self, load_8bit: bool = False,
                 base_model: str = "decapoda-research/llama-7b-hf",
-                lora_weights: str = "training_results/therapy_dialogue_1",
+                lora_weights: str = "training_results/therapy_6420_try_1",
                 verbose: bool = True,):
         self.base_model = base_model or os.environ.get("BASE_MODEL", "")
         self.tokenizer = LlamaTokenizer.from_pretrained(base_model)
