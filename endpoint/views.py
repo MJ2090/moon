@@ -17,14 +17,11 @@ Below is a dialogue between a patient and a therapist. Write one reply as if you
         messages = json.loads(request.POST['messages'])
         for item in messages:
             if item['role'] == 'user':
-                prompt += f"""
-Patient: {item['content']}"""
+                prompt += f"""\nPatient: {item['content']}"""
             if item['role'] == 'assistant' and 'Therapist: ' in item['content']:
-                prompt += f"""
-{item['content']}"""
+                prompt += f"""\n{item['content']}"""
             if item['role'] == 'assistant' and not 'Therapist:' in item['content']:
-                prompt += f"""
-Therapist: {item['content']}"""
+                prompt += f"""\nTherapist: {item['content']}"""
 
         print("current prompt: ", prompt)
 
