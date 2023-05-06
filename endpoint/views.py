@@ -16,10 +16,7 @@ def test_async(request):
 
 ### Instruction:
 """
-
-        print("request.POST = ", request.POST)
-        print("others1 , ", request.POST['messages'])
-        print("others2 , ", type(request.POST['messages']))
+        print("messages , ", request.POST['messages'])
         prompt = prompt_template
         messages = json.loads(request.POST['messages'])
         for item in messages:
@@ -34,7 +31,9 @@ Therapist: {item['content']}"""
 ### Response:
 
 """
+        print("prompt = ", prompt)
         ai_message = settings.LLAMA.evaluate(prompt = prompt)
+        print("output = ", ai_message)
         splitted = ai_message.split("### Response:")
         if len(splitted)>1:
             ans = splitted[1]
