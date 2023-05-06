@@ -11,10 +11,12 @@ x=0
 def test_async(request):
     if request.method == 'POST':
         ai_message = 'wwwww'
-        prompt_template = """
-        Below is aninstruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
+        prompt_template = """Below is aninstruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
 
 ### Instruction:
+Below is a dialogue between a patient and a therapist. Write one reply as if you were the therapist.
+
+### Input:
 """
         print("messages , ", request.POST['messages'])
         prompt = prompt_template
