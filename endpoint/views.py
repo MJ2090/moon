@@ -39,6 +39,8 @@ Below is a dialogue between a patient and a therapist. Write one reply as if you
             ans = splitted[1]
         else:
             ans = splitted[0]
+        if ans.startswith('Therapist: '):
+            ans.replace('Therapist: ', '')
         return HttpResponse(json.dumps({'ai_message': ans}))
     else:
         ret = {}
