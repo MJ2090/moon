@@ -44,3 +44,28 @@ Below is a dialogue between a patient and a therapist. Write one reply as if you
     else:
         ret = {}
         return render(request, 'endpoint/main.html', ret)
+    
+
+@csrf_exempt
+def test(request):
+    prompt_template = """Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
+
+### Instruction:
+Below is a dialogue between a patient and a therapist. Write one reply as if you were the therapist.
+
+### Input:
+Patient: I'm so sad today
+
+### Response:
+"""
+    print("In TEST")
+    print(f"Prompt =============================\n{prompt_template}\n=============================")
+    ai_message = settings.LLAMA.evaluate(prompt = prompt_template)
+    print(f"Output =============================\n{ai_message}\n=============================")
+    splitted = ai_message.split("### Response:\n")
+    if len(splitted)>1:
+        ans = splitted[1]
+    else:
+        ans = splitted[0]
+    ans = ans.replace('Therapist: ', '')
+    return HttpResponse(json.dumps({'ai_message': ans, 'prompt': prompt_template}))
