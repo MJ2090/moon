@@ -18,7 +18,7 @@ sudo vi /etc/nginx/nginx.conf // remove TLSv1 TLSv1.1
 
 sudo vi /etc/nginx/sites-available/moon // copy moon/config/nginx/moon_default
 
-cd cd /etc/nginx/sites-enabled
+cd /etc/nginx/sites-enabled
 
 sudo ln -s ../sites-available/moon .
 
