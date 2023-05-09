@@ -29,6 +29,7 @@ except KeyError as e:
 ALLOWED_HOSTS = ["34.222.45.176",
                  "34.64.110.21",
                  "127.0.0.1",
+                 "35.239.82.117",
                  "asuperdomain.com",
                  "llm.asuperdomain.com",
                  "www.asuperdomain.com",
