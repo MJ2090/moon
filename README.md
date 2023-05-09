@@ -15,3 +15,7 @@ sudo vi /etc/nginx/nginx.conf
 
 
 sudo certbot --nginx --rsa-key-size 4096 --no-redirect
+
+sudo systemctl start nginx
+
+sudo systemctl status nginx
