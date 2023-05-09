@@ -1,0 +1,26 @@
+server_tokens off;
+access_log    /var/log/nginx/access.log;
+error_log     /var/log/nginx/error.log;
+
+# This configuration will be changed to redirect to HTTPS later
+server {
+  server_name               .llm.asuperdomain.com;
+  listen                    80;
+  return                    307 https://$host$request_uri;
+}
+
+server {
+    location / {
+                proxy_pass              http://localhost:8000;
+                proxy_set_header        Host $host;
+                proxy_set_header        X-Forwarded-Proto $scheme;
+                proxy_read_timeout 600s;
+                proxy_connect_timeout 600s;
+        }
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/llm.asuperdomain.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/llm.asuperdomain.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
