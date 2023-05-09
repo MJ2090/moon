@@ -19,3 +19,11 @@ sudo certbot --nginx --rsa-key-size 4096 --no-redirect
 sudo systemctl start nginx
 
 sudo systemctl status nginx
+
+$ cd /etc/nginx/sites-enabled
+
+$ # Note: replace 'supersecure' with your domain
+
+$ sudo ln -s ../sites-available/supersecure .
+
+$ sudo systemctl restart nginx
