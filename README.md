@@ -24,6 +24,8 @@ sudo ln -s ../sites-available/moon .
 
 sudo systemctl start nginx
 
+sudo systemctl status nginx
+
 // about https
 
 sudo certbot --nginx --rsa-key-size 4096 --no-redirect
