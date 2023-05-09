@@ -15,6 +15,9 @@ pip install fire==0.5.0
 pip install git+https://github.com/huggingface/peft.git
 sudo apt install nginx -y
 
+echo "export SECRET_KEY='$(openssl rand -hex 40)'" > .DJANGO_SECRET_KEY
+source .DJANGO_SECRET_KEY
+
 echo "CUDA started =============================="
 sudo apt install software-properties-common -y
 sudo apt install nvidia-cuda-toolkit -y
