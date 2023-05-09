@@ -5,25 +5,28 @@ source ~/.bashrc
 
 source ~/.DJANGO_SECRET_KEY
 
+// about gunicorn
+
 sudo mkdir -pv /var/{log,run}/gunicorn/
 
 sudo chown -cR ubuntu:ubuntu /var/{log,run}/gunicorn/
 
-// remove TLSv1 TLSv1.1
 
-sudo vi /etc/nginx/nginx.conf
+// about nginx
 
+sudo vi /etc/nginx/nginx.conf // remove TLSv1 TLSv1.1
 
-sudo certbot --nginx --rsa-key-size 4096 --no-redirect
+sudo vi /etc/nginx/sites-available/moon // copy moon/config/nginx/moon_default
+
+cd cd /etc/nginx/sites-enabled
+
+sudo ln -s ../sites-available/moon .
 
 sudo systemctl start nginx
 
-sudo systemctl status nginx
+// about https
 
-$ cd /etc/nginx/sites-enabled
+sudo certbot --nginx --rsa-key-size 4096 --no-redirect
 
-$ # Note: replace 'supersecure' with your domain
+sudo vi /etc/nginx/sites-available/moon // something like moon/config/nginx/moon
 
-$ sudo ln -s ../sites-available/supersecure .
-
-$ sudo systemctl restart nginx
