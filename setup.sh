@@ -11,6 +11,7 @@ pip install torch==2.0.0
 pip install tensorboardX==2.6
 pip install bitsandbytes==0.37.2
 pip install accelerate==0.18.0
+pip install sentencepiece
 pip install fire==0.5.0
 pip install git+https://github.com/huggingface/peft.git
 sudo apt install nginx -y
