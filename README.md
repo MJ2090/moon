@@ -1,18 +1,21 @@
 # moon
+
+## basic setup
 sh setup.sh
 
 source ~/.bashrc
 
 source ~/.DJANGO_SECRET_KEY
 
-// about gunicorn
+// edit ALLOWED_HOSTS
+
+## about gunicorn
 
 sudo mkdir -pv /var/{log,run}/gunicorn/
 
 sudo chown -cR ubuntu:ubuntu /var/{log,run}/gunicorn/
 
-
-// about nginx
+## about nginx
 
 sudo vi /etc/nginx/nginx.conf // remove TLSv1 TLSv1.1
 
@@ -26,7 +29,7 @@ sudo systemctl start nginx
 
 sudo systemctl status nginx
 
-// about https
+## about https
 
 sudo certbot --nginx --rsa-key-size 4096 --no-redirect
 
