@@ -11,10 +11,11 @@ class Glm6bModel:
             "THUDM/chatglm-6b", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
             "THUDM/chatglm-6b", trust_remote_code=True).half().cuda()
+        self.test()
 
 
     def test(self):
-        return "This is from glm test."
+        return "This is from Glm6bModel test."
 
 
     def evaluate(self, message, history):
@@ -29,10 +30,11 @@ class Glm6bInt4Model:
             "THUDM/chatglm-6b-int4", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
             "THUDM/chatglm-6b-int4", trust_remote_code=True).half().cuda()
+        self.test()
 
 
     def test(self):
-        return "This is from glm test."
+        return "This is from Glm6bInt4Model test."
 
 
     def evaluate(self, message, history):
