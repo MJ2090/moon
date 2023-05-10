@@ -29,7 +29,7 @@ def main(
         msg = gr.Textbox()
         clear = gr.Button("Clear")
 
-        msg.submit(evaluate, [msg, chatbot, ], [msg, chatbot, ])
+        msg.submit(evaluate, [msg, chatbot], [msg, chatbot])
         clear.click(lambda: None, None, chatbot, queue=False)
 
     demo.launch(server_name=server_name, share=share_gradio)
