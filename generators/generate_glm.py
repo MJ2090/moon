@@ -11,13 +11,17 @@ else:
 
 
 def main(
-    load_8bit: bool = False,
+    model_name: str = 'Glm6bModel',
     # Allows to listen on all interfaces by providing '0.
     server_name: str = "0.0.0.0",
     share_gradio: bool = True,
     verbose: bool = True,
 ):
-    my_model = Glm6bModel()
+    my_model = None
+    if model_name=='Glm6bModel':
+        my_model=Glm6bModel()
+    if model_name=='Glm6bInt4Model':
+        my_model=Glm6bInt4Model()
 
     def evaluate(message='', chat_history=[], **kwargs):
         print(message, chat_history)
