@@ -1,0 +1,11 @@
+# ignore ALL .pyc files
+*.pyc
+
+# the local db
+*.sqlite3
+mysite/db.sqlite3
+
+*.DS_Store
+
+# all the generated mp3 from aws polly
+*.mp3
