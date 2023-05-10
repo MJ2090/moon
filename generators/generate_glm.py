@@ -1,7 +1,7 @@
 import fire
 import gradio as gr
 import torch
-from endpoint.llm.glm import GlmModel
+from endpoint.llm.glm import Glm6bModel, Glm6bInt4Model
 
 
 if torch.cuda.is_available():
@@ -17,7 +17,7 @@ def main(
     share_gradio: bool = True,
     verbose: bool = True,
 ):
-    my_model = GlmModel()
+    my_model = Glm6bModel()
 
     def evaluate(message='', chat_history=[], **kwargs):
         print(message, chat_history)
