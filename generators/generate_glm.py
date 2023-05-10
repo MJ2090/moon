@@ -1,12 +1,6 @@
-import os
-import sys
 import fire
 import gradio as gr
 import torch
-from peft import PeftModel
-from transformers import GenerationConfig, LlamaForCausalLM, LlamaTokenizer
-from utils.prompter import Prompter
-import time
 from endpoint.llm.glm import GlmModel
 
 
