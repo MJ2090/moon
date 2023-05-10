@@ -12,10 +12,12 @@ class GlmModel:
         self.model = AutoModel.from_pretrained(
             "THUDM/chatglm-6b", trust_remote_code=True).half().cuda()
 
+
     def test(self):
         return "This is from glm test."
 
-    def evaluate(self, history):
+
+    def evaluate(self, message, history):
         response, history = self.model.chat(
-            self.tokenizer, "晚上睡不着应该怎么办", history=history)
+            self.tokenizer, message, history=history)
         return response
