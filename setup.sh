@@ -17,7 +17,7 @@ pip install git+https://github.com/huggingface/peft.git
 sudo apt install nginx -y
 
 echo "DJANGO started =============================="
-export PYTHONPATH=~/moon:$PYTHONPATH
+echo "export PYTHONPATH=~/moon:$PYTHONPATH" >> ~/.bashrc
 echo "export SECRET_KEY='$(openssl rand -hex 40)'" > ~/.DJANGO_SECRET_KEY
 source ~/.DJANGO_SECRET_KEY
 echo "DJANGO ended =============================="
