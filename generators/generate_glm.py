@@ -22,7 +22,7 @@ def main(
     def evaluate(message='', chat_history=[], **kwargs):
         print(message, chat_history)
         pre_history=[['假设你是陈老板', '好的 我是陈老板 我是从天上来的']]
-        response, history = my_model.evaluate(message, pre_history)
+        response, history = my_model.evaluate(message, chat_history)
         print(response)
         return '', history
 
