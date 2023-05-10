@@ -22,7 +22,8 @@ def main(
     def evaluate(message='', chat_history=[], **kwargs):
         print(message, chat_history)
         response, history = my_model.evaluate(message, chat_history)
-        return response, history
+        print(response)
+        return '', history
 
     with gr.Blocks() as demo:
         chatbot = gr.Chatbot()
