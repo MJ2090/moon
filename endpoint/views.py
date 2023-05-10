@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 @csrf_exempt
-def test_async(request):
+def llama_async(request):
     if request.method == 'POST':
         prompt_template = """Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
 
@@ -20,17 +20,12 @@ Below is a dialogue between a patient and a therapist. Write one reply as if you
         for item in messages:
             if item['role'] == 'user':
                 prompt += f"""\nPatient: {item['content']}"""
-            if item['role'] == 'assistant' and 'Therapist: ' in item['content']:
-                prompt += f"""\n{item['content']}"""
-            if item['role'] == 'assistant' and not 'Therapist:' in item['content']:
-                prompt += f"""\nTherapist: {item['content']}"""
-
-        print("current prompt: ", prompt)
-
-        prompt += """
-
-### Response:
-"""
+            if item['role'] == 'assistant':
+                if 'Therapist: ' in item['content']:
+                    prompt += f"""\n{item['content']}"""
+                else:
+                    prompt += f"""\nTherapist: {item['content']}"""
+        prompt += """\n\n### Response:\n"""
         print(f"Prompt =============================\n{prompt}\n=============================")
         ai_message = settings.LLAMA.evaluate(prompt = prompt)
         print(f"Output =============================\n{ai_message}\n=============================")
@@ -41,6 +36,17 @@ Below is a dialogue between a patient and a therapist. Write one reply as if you
             ans = splitted[0]
         ans = ans.replace('Therapist: ', '')
         return HttpResponse(json.dumps({'ai_message': ans}))
+    else:
+        ret = {}
+        return render(request, 'endpoint/main.html', ret)
+    
+
+@csrf_exempt
+def glm_async(request):
+    if request.method == 'POST':
+        messages = json.loads(request.POST['messages'])
+        print("POST messages : ", messages)
+        ai_message = settings.LLAMA.evaluate(prompt = prompt)
     else:
         ret = {}
         return render(request, 'endpoint/main.html', ret)

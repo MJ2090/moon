@@ -4,7 +4,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from . import views
 
 urlpatterns = [
-    path('test_async/', views.test_async, name='test_async'),
+    path('llama_async/', views.llama_async, name='llama_async'),
+    path('glm_async/', views.glm_async, name='glm_async'),
     path('test/', views.test, name='test'),
 ]
 

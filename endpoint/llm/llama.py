@@ -40,7 +40,7 @@ class LlamaModel:
         return model
     
     def test(self):
-        return "hahaha"
+        return "This is from llama test."
 
     def evaluate(self,
                  prompt='',
@@ -60,14 +60,6 @@ class LlamaModel:
             num_beams=num_beams,
             **kwargs,
         )
-
-        generate_params = {
-            "input_ids": input_ids,
-            "generation_config": generation_config,
-            "return_dict_in_generate": True,
-            "output_scores": True,
-            "max_new_tokens": max_new_tokens,
-        }
 
         with torch.no_grad():
             generation_output = self.model.generate(
