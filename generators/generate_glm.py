@@ -22,7 +22,6 @@ def main(
     def evaluate(message='', chat_history=[], **kwargs):
         print(message, chat_history)
         response, history = my_model.evaluate(message, chat_history)
-        print("results: ", response, history)
         return response, history
 
     with gr.Blocks() as demo:
