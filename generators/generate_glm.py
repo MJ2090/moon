@@ -25,7 +25,7 @@ def main(
 
     with gr.Blocks() as demo:
         chatbot = gr.Chatbot()
-        msg = gr.Textbox(value='Patient: ')
+        msg = gr.Textbox()
         clear = gr.Button("Clear")
 
         msg.submit(evaluate, [msg, chatbot, ], [msg, chatbot, ])
