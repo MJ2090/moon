@@ -1,4 +1,4 @@
-from transformers import GenerationConfig, LlamaForCausalLM, LlamaTokenizer, AutoTokenizer, AutoModel
+from transformers import GenerationConfig, AutoTokenizer, AutoModel
 import torch
 import sys
 from pathlib import Path
