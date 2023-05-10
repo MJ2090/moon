@@ -8,9 +8,9 @@ import os
 class GlmModel:
     def __init__(self):
         self.tokenizer = AutoTokenizer.from_pretrained(
-            "THUDM/chatglm-6b", trust_remote_code=True)
+            "THUDM/chatglm-6b-int4", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
-            "THUDM/chatglm-6b", trust_remote_code=True).half().cuda()
+            "THUDM/chatglm-6b-int4", trust_remote_code=True).half().cuda()
 
 
     def test(self):
