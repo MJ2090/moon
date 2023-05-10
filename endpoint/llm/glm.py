@@ -18,7 +18,6 @@ class GlmModel:
 
 
     def evaluate(self, message, history):
-        print("params...: ", message, history)
         response, history = self.model.chat(
             self.tokenizer, message, history=history)
-        return response
+        return response, history
