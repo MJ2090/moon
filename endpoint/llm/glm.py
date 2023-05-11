@@ -11,7 +11,7 @@ class Glm6bModel:
             "THUDM/chatglm-6b", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
             "THUDM/chatglm-6b", trust_remote_code=True)
-        if self.device == 'cude':
+        if self.device == 'cuda':
             self.model = self.model.half().cuda()
         else:
             self.model = self.model.cpu().float()
@@ -39,8 +39,8 @@ class Glm6bInt4Model:
         self.model = AutoModel.from_pretrained(
             "THUDM/chatglm-6b-int4", trust_remote_code=True)
         
-        print("11444444444444444444444444444444444444", self.device, self.device == 'cude')
-        if self.device == 'cude':
+        print("11444444444444444444444444444444444444", len(self.device), self.device == 'cuda')
+        if self.device == 'cuda':
             print("444444444444444444444444444444444444", self.device)
             self.model = self.model.half().cuda()
         else:
