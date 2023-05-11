@@ -34,6 +34,7 @@ class Glm6bInt4Model:
             self.device = "cuda"
         else:
             self.device = "cpu"
+        print("444444444444444444444444444444444444", self.device)
         self.tokenizer = AutoTokenizer.from_pretrained(
             "THUDM/chatglm-6b-int4", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
