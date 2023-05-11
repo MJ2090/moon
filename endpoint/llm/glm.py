@@ -11,6 +11,7 @@ class Glm6bModel:
             "THUDM/chatglm-6b", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
             "THUDM/chatglm-6b", trust_remote_code=True)
+        self.max_length = 10240
         if self.device == 'cuda':
             self.model = self.model.half().cuda()
         else:
@@ -24,7 +25,7 @@ class Glm6bModel:
 
     def evaluate(self, message, history):
         response, history = self.model.chat(
-            self.tokenizer, message, history=history)
+            self.tokenizer, message, history=history, max_length=self.max_length)
         return response, history
 
 
@@ -38,7 +39,7 @@ class Glm6bInt4Model:
             "THUDM/chatglm-6b-int4", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
             "THUDM/chatglm-6b-int4", trust_remote_code=True)
-        
+        self.max_length = 10240
         if self.device == 'cuda':
             self.model = self.model.half().cuda()
         else:
@@ -52,5 +53,5 @@ class Glm6bInt4Model:
 
     def evaluate(self, message, history):
         response, history = self.model.chat(
-            self.tokenizer, message, history=history)
+            self.tokenizer, message, history=history, max_length=self.max_length)
         return response, history
