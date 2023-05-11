@@ -4,12 +4,6 @@ import torch
 from endpoint.llm.glm import Glm6bModel, Glm6bInt4Model
 
 
-if torch.cuda.is_available():
-    device = "cuda"
-else:
-    device = "cpu"
-
-
 def main(
     model_name: str = 'Glm6bModel',
     # Allows to listen on all interfaces by providing '0.

@@ -1,16 +1,20 @@
-from transformers import GenerationConfig, AutoTokenizer, AutoModel
+from transformers import AutoTokenizer, AutoModel
 import torch
-import sys
-from pathlib import Path
-import os
-
 
 class Glm6bModel:
     def __init__(self):
+        if torch.cuda.is_available():
+            self.device = "cuda"
+        else:
+            self.device = "cpu"
         self.tokenizer = AutoTokenizer.from_pretrained(
             "THUDM/chatglm-6b", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
-            "THUDM/chatglm-6b", trust_remote_code=True).half().cuda()
+            "THUDM/chatglm-6b", trust_remote_code=True)
+        if self.device == 'cude':
+            self.model = self.model.half().cuda()
+        else:
+            self.model = self.model.cpu().float()
         self.test()
 
 
@@ -26,10 +30,18 @@ class Glm6bModel:
 
 class Glm6bInt4Model:
     def __init__(self):
+        if torch.cuda.is_available():
+            self.device = "cuda"
+        else:
+            self.device = "cpu"
         self.tokenizer = AutoTokenizer.from_pretrained(
             "THUDM/chatglm-6b-int4", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
-            "THUDM/chatglm-6b-int4", trust_remote_code=True).half().cuda()
+            "THUDM/chatglm-6b-int4", trust_remote_code=True).cpu().float()
+        if self.device == 'cude':
+            self.model = self.model.half().cuda()
+        else:
+            self.model = self.model.cpu().float()
         self.test()
 
 
