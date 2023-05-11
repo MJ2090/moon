@@ -38,6 +38,8 @@ class Glm6bInt4Model:
             "THUDM/chatglm-6b-int4", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
             "THUDM/chatglm-6b-int4", trust_remote_code=True)
+        
+        print("11444444444444444444444444444444444444", self.device, self.device == 'cude')
         if self.device == 'cude':
             print("444444444444444444444444444444444444", self.device)
             self.model = self.model.half().cuda()
