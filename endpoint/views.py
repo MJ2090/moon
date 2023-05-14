@@ -49,7 +49,7 @@ def glm_async(request):
         if settings.GLM is None:
             return HttpResponse(json.dumps({'ai_message': 'GLM model is not setup.'}))
         messages = json.loads(request.POST['messages'])
-        prompt = json.loads(request.POST['prompt'])
+        prompt = request.POST['prompt']
         print(f"POST messages : {messages}, prompt: {prompt}")
         # ai_message = settings.LLAMA.evaluate(prompt = 'prompt')
         ai_message = "22222"
