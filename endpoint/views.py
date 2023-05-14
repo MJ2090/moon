@@ -48,6 +48,7 @@ def glm_async(request):
         print("POST messages : ", messages)
         # ai_message = settings.LLAMA.evaluate(prompt = 'prompt')
         ai_message = "22222"
+        return HttpResponse(json.dumps({'ai_message': ai_message}))
     else:
         ret = {}
         return render(request, 'endpoint/main.html', ret)
