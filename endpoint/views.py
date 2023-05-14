@@ -51,8 +51,8 @@ def glm_async(request):
         messages = json.loads(request.POST['messages'])
         prompt = request.POST['prompt']
         print(f"POST messages : {messages}, prompt: {prompt}")
-        # ai_message = settings.LLAMA.evaluate(prompt = 'prompt')
-        ai_message = "22222"
+        ai_message = settings.GLM.evaluate(prompt = 'prompt')
+        # ai_message = "22222"
         return HttpResponse(json.dumps({'ai_message': ai_message}))
     else:
         ret = {}

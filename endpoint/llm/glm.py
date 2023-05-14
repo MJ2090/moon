@@ -20,10 +20,10 @@ class Glm6bModel:
 
 
     def test(self):
-        print("This is from Glm6bModel test.")
+        print("This is from Glm6bModel test. Using " + self.device)
 
 
-    def evaluate(self, message, history):
+    def evaluate(self, message, history = []):
         response, history = self.model.chat(
             self.tokenizer, message, history=history, max_length=self.max_length)
         return response, history
@@ -48,10 +48,10 @@ class Glm6bInt4Model:
 
 
     def test(self):
-        print("This is from Glm6bInt4Model test.")
+        print("This is from Glm6bInt4Model test. Using " + self.device)
 
 
-    def evaluate(self, message, history):
+    def evaluate(self, message, history = []):
         response, history = self.model.chat(
             self.tokenizer, message, history=history, max_length=self.max_length)
         return response, history
