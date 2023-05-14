@@ -132,4 +132,6 @@ CSRF_TRUSTED_ORIGINS = ['https://accounts.google.com']
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 
-LLAMA = LlamaModel()
+#LLAMA = LlamaModel()
+GLM = None
+LLAMA = None
