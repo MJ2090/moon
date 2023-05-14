@@ -51,7 +51,7 @@ def glm_async(request):
         messages = json.loads(request.POST['messages'])
         prompt = request.POST['prompt']
         full_prompt = prompt + '\n' + messages
-        ai_message = settings.GLM.evaluate(message = full_prompt)
+        ai_message, _ = settings.GLM.evaluate(message = full_prompt)
         print(f"POST messages : {messages}, full_prompt: {full_prompt}, ai_message: {ai_message}")
         return HttpResponse(json.dumps({'ai_message': ai_message}))
     else:
