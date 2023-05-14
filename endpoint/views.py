@@ -50,9 +50,9 @@ def glm_async(request):
             return HttpResponse(json.dumps({'ai_message': 'GLM model is not setup.'}))
         messages = json.loads(request.POST['messages'])
         prompt = request.POST['prompt']
-        print(f"POST messages : {messages}, prompt: {prompt}")
+        full_prompt = prompt + '\n' + messages
         ai_message = settings.GLM.evaluate(message = '你是谁')
-        # ai_message = "22222"
+        print(f"POST messages : {messages}, full_prompt: {full_prompt}, ai_message: {ai_message}")
         return HttpResponse(json.dumps({'ai_message': ai_message}))
     else:
         ret = {}
