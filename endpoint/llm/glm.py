@@ -20,7 +20,7 @@ class Glm6bModel:
 
 
     def test(self):
-        return "This is from Glm6bModel test."
+        print("This is from Glm6bModel test.")
 
 
     def evaluate(self, message, history):
@@ -48,7 +48,7 @@ class Glm6bInt4Model:
 
 
     def test(self):
-        return "This is from Glm6bInt4Model test."
+        print("This is from Glm6bInt4Model test.")
 
 
     def evaluate(self, message, history):

@@ -8,6 +8,8 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def llama_async(request):
     if request.method == 'POST':
+        if settings.LLAMA is None:
+            return HttpResponse(json.dumps({'ai_message': 'LLAMA model is not setup.'}))
         prompt_template = """Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
 
 ### Instruction:
@@ -44,8 +46,11 @@ Below is a dialogue between a patient and a therapist. Write one reply as if you
 @csrf_exempt
 def glm_async(request):
     if request.method == 'POST':
+        if settings.GLM is None:
+            return HttpResponse(json.dumps({'ai_message': 'GLM model is not setup.'}))
         messages = json.loads(request.POST['messages'])
-        print("POST messages : ", messages)
+        prompt = json.loads(request.POST['prompt'])
+        print(f"POST messages : {messages}, prompt: {prompt}")
         # ai_message = settings.LLAMA.evaluate(prompt = 'prompt')
         ai_message = "22222"
         return HttpResponse(json.dumps({'ai_message': ai_message}))
