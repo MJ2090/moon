@@ -26,6 +26,7 @@ class Glm6bModel:
     def evaluate(self, message, history = [], temperature=0.9):
         response, history = self.model.chat(
             self.tokenizer, message, history=history, max_length=self.max_length, temperature=temperature)
+        print(f"In class GLM, temperature = {temperature}")
         return response, history
 
 
@@ -54,4 +55,5 @@ class Glm6bInt4Model:
     def evaluate(self, message, history = [], temperature=0.9):
         response, history = self.model.chat(
             self.tokenizer, message, history=history, max_length=self.max_length, temperature=temperature)
+        print(f"In class GLM, temperature = {temperature}")
         return response, history
