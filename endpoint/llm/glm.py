@@ -23,9 +23,9 @@ class Glm6bModel:
         print("This is from Glm6bModel test. Using " + self.device)
 
 
-    def evaluate(self, message, history = []):
+    def evaluate(self, message, history = [], temperature=0.9):
         response, history = self.model.chat(
-            self.tokenizer, message, history=history, max_length=self.max_length)
+            self.tokenizer, message, history=history, max_length=self.max_length, temperature=temperature)
         return response, history
 
 
@@ -51,7 +51,7 @@ class Glm6bInt4Model:
         print("This is from Glm6bInt4Model test. Using " + self.device)
 
 
-    def evaluate(self, message, history = []):
+    def evaluate(self, message, history = [], temperature=0.9):
         response, history = self.model.chat(
-            self.tokenizer, message, history=history, max_length=self.max_length)
+            self.tokenizer, message, history=history, max_length=self.max_length, temperature=temperature)
         return response, history

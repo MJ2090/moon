@@ -50,9 +50,10 @@ def glm_async(request):
             return HttpResponse(json.dumps({'ai_message': 'GLM model is not setup.'}))
         messages = json.loads(request.POST['messages'])
         prompt = request.POST['prompt']
+        temperature = get_temperature(request)
         full_prompt = prompt + '\n' + messages
-        ai_message, _ = settings.GLM.evaluate(message = full_prompt)
-        print(f"POST messages : {messages}, full_prompt: {full_prompt}, ai_message: {ai_message}")
+        ai_message, _ = settings.GLM.evaluate(message = full_prompt, temperature = temperature)
+        print(f"POST messages : {messages}, full_prompt: {full_prompt}, ai_message: {ai_message}, temperature: {temperature}")
         return HttpResponse(json.dumps({'ai_message': ai_message}))
     else:
         ret = {}
@@ -82,3 +83,18 @@ Patient: I'm so sad today
         ans = splitted[0]
     ans = ans.replace('Therapist: ', '')
     return HttpResponse(json.dumps({'ai_message': ans, 'prompt': prompt_template}))
+
+
+def get_temperature(request):
+    t = request.POST.get('temperature', '0.9')
+    if not is_float(t):
+        return 0.9
+    else:
+        return float(t)
+
+
+def is_float(my_str):
+    if my_str.replace(".", "").isnumeric():
+        return True
+    else:
+        return False
