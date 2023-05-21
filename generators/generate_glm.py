@@ -34,9 +34,6 @@ def main(
         """)
         chatbot = gr.Chatbot()
         msg = gr.Textbox()
-        temperature = gr.Slider(
-            minimum=0, maximum=1, value=0.1, label="Temperature"
-        ),
         clear = gr.Button("Clear")
 
         msg.submit(evaluate, [msg, chatbot], [msg, chatbot])
