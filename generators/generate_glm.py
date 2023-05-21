@@ -30,12 +30,12 @@ def main(
         """)
         chatbot = gr.Chatbot()
         msg = gr.Textbox()
-        clear = gr.Button("Clear")
         temperature = gr.Slider(
             minimum=0, maximum=1, value=0.1, label="Temperature"
         ),
+        clear = gr.Button("Clear")
 
-        msg.submit(evaluate, [msg, chatbot, msg], [msg, chatbot])
+        msg.submit(evaluate, [msg, chatbot, temperature], [msg, chatbot])
         clear.click(lambda: None, None, chatbot, 0.1, queue=False)
 
     demo.launch(server_name=server_name, share=share_gradio)
