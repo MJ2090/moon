@@ -36,7 +36,7 @@ def main(
         ),
 
         msg.submit(evaluate, [msg, chatbot, temperature], [msg, chatbot])
-        clear.click(lambda: None, None, chatbot, queue=False)
+        clear.click(lambda: None, None, chatbot, 0.1, queue=False)
 
     demo.launch(server_name=server_name, share=share_gradio)
 
