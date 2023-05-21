@@ -17,7 +17,7 @@ def main(
     if model_name=='Glm6bInt4Model':
         my_model=Glm6bInt4Model()
 
-    def evaluate(message='', chat_history=[], temperature=0.1, **kwargs):
+    def evaluate(message='', chat_history=[], ms2='s', temperature=0.1, **kwargs):
         print(message, chat_history, temperature)
         response, history = my_model.evaluate(message, chat_history, temperature=temperature)
         print(response)
@@ -35,7 +35,7 @@ def main(
             minimum=0, maximum=1, value=0.1, label="Temperature"
         ),
 
-        msg.submit(evaluate, [msg, chatbot], [msg, chatbot])
+        msg.submit(evaluate, [msg, chatbot, msg], [msg, chatbot])
         clear.click(lambda: None, None, chatbot, 0.1, queue=False)
 
     demo.launch(server_name=server_name, share=share_gradio)
