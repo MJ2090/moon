@@ -51,9 +51,8 @@ def glm_async(request):
         messages = json.loads(request.POST['messages'])
         prompt = request.POST['prompt']
         temperature = get_temperature(request)
-        full_prompt = prompt + '\n' + messages
-        ai_message, _ = settings.GLM.evaluate(message = full_prompt, temperature = temperature)
-        print(f"POST messages : {messages}, full_prompt: {full_prompt}, ai_message: {ai_message}, temperature: {temperature}")
+        ai_message, _ = settings.GLM.evaluate(message = prompt, temperature = temperature)
+        print(f"POST messages : {messages}, prompt: {prompt}, ai_message: {ai_message}, temperature: {temperature}")
         return HttpResponse(json.dumps({'ai_message': ai_message}))
     else:
         ret = {}

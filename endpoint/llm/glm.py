@@ -11,7 +11,7 @@ class Glm6bModel:
             "THUDM/chatglm-6b", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
             "THUDM/chatglm-6b", trust_remote_code=True)
-        self.max_length = 10240
+        self.max_length = 4096
         if self.device == 'cuda':
             self.model = self.model.half().cuda()
         else:
@@ -40,7 +40,7 @@ class Glm6bInt4Model:
             "THUDM/chatglm-6b-int4", trust_remote_code=True)
         self.model = AutoModel.from_pretrained(
             "THUDM/chatglm-6b-int4", trust_remote_code=True)
-        self.max_length = 10240
+        self.max_length = 4096
         if self.device == 'cuda':
             self.model = self.model.half().cuda()
         else:
