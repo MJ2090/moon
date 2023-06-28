@@ -22,7 +22,9 @@ def main(
         temperature = 0.1
 
     def evaluate(message='', chat_history=[], **kwargs):
-        print(message, chat_history, temperature)
+        print("message: ",message)
+        print("chat_history:", chat_history)
+        print("temperature:", temperature)
         response, history = my_model.evaluate(message, chat_history, temperature=temperature)
         print(response)
         return '', history
