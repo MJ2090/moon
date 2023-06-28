@@ -32,19 +32,19 @@ class GlmModel:
 
 class Glm6bModel(GlmModel):
     def __init__(self):
-        super(Glm6bModel, self).__init__(model_name='THUDM/chatglm-6b')
+        super().__init__(model_name='THUDM/chatglm-6b')
 
 
 class Glm6bInt4Model(GlmModel):
     def __init__(self):
-        super(Glm6bModel, self).__init__(model_name='THUDM/chatglm-6b-int4')
+        super().__init__(model_name='THUDM/chatglm-6b-int4')
 
 
 class Glm6bV2Model(GlmModel):
     def __init__(self):
-        super(Glm6bModel, self).__init__(model_name='THUDM/chatglm2-6b')
+        super().__init__(model_name='THUDM/chatglm2-6b')
 
       
 class Glm6bV2Int4Model(GlmModel):
     def __init__(self):
-        super(Glm6bModel, self).__init__(model_name='THUDM/chatglm2-6b-int4')
+        super().__init__(model_name='THUDM/chatglm2-6b-int4')
