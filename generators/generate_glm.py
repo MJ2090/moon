@@ -1,7 +1,7 @@
 import fire
 import gradio as gr
 import torch
-from endpoint.llm.glm import Glm6bModel, Glm6bInt4Model
+from endpoint.llm.glm import Glm6bV2Model, Glm6bV2Int4Model
 
 
 def main(
@@ -14,9 +14,9 @@ def main(
 ):
     my_model = None
     if model_name=='Glm6bModel':
-        my_model=Glm6bModel()
+        my_model=Glm6bV2Model()
     if model_name=='Glm6bInt4Model':
-        my_model=Glm6bInt4Model()
+        my_model=Glm6bV2Int4Model()
 
     if temperature<0 or temperature>1:
         temperature = 0.1
