@@ -22,11 +22,12 @@ def main(
         temperature = 0.1
 
     def evaluate(message='', chat_history=[], **kwargs):
-        print("message: ",message)
         print("chat_history:", chat_history)
         print("temperature:", temperature)
+        print("Human message: ",message)
         response, history = my_model.evaluate(message, chat_history, temperature=temperature)
-        print(response)
+        print("GLM response:", response)
+        print("=============================")
         return '', history
 
     with gr.Blocks() as demo:
