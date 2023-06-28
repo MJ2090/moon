@@ -5,7 +5,7 @@ from endpoint.llm.glm import Glm6bV2Model, Glm6bV2Int4Model
 
 
 def main(
-    model_name: str = 'Glm6bInt4Model',
+    model_name: str = 'Glm6bModel',
     # Allows to listen on all interfaces by providing '0.
     server_name: str = "0.0.0.0",
     temperature: int = 0.1,
