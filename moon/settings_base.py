@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from endpoint.llm.llama import LlamaModel
-from endpoint.llm.glm import Glm6bInt4Model
+from endpoint.llm.glm import Glm6bV2Int4Model
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -134,5 +134,5 @@ CSRF_TRUSTED_ORIGINS = ['https://accounts.google.com']
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 
 #LLAMA = LlamaModel()
-GLM = Glm6bInt4Model()
+GLM = Glm6bV2Int4Model()
 LLAMA = None
